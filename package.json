@@ -1,0 +1,13 @@
+{
+  "name": "api-tarefas",
+  "version": "0.1.0",
+  "description": "API REST simples de gerenciamento de tarefas",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}
