@@ -22,4 +22,10 @@ router.put('/:id', validarTarefa, (req, res) => {
   res.json(tarefa);
 });
 
+router.delete('/:id', (req, res) => {
+  const removida = repositorio.remover(Number(req.params.id));
+  if (!removida) return res.status(404).json({ erro: 'Tarefa não encontrada' });
+  res.status(204).send();
+});
+
 module.exports = router;
