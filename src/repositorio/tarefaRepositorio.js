@@ -5,6 +5,10 @@ function listar() {
   return tarefas;
 }
 
+function buscarPorId(id) {
+  return tarefas.find((t) => t.id === id) || null;
+}
+
 function criar({ titulo, descricao = '' }) {
   const tarefa = {
     id: proximoId++,
@@ -17,9 +21,25 @@ function criar({ titulo, descricao = '' }) {
   return tarefa;
 }
 
+function atualizar(id, { titulo, descricao, concluida }) {
+  const tarefa = buscarPorId(id);
+  if (!tarefa) return null;
+  tarefa.titulo = titulo.trim();
+  tarefa.descricao = descricao ?? tarefa.descricao;
+  tarefa.concluida = concluida ?? tarefa.concluida;
+  return tarefa;
+}
+
+function remover(id) {
+  const indice = tarefas.findIndex((t) => t.id === id);
+  if (indice === -1) return false;
+  tarefas.splice(indice, 1);
+  return true;
+}
+
 function limpar() {
   tarefas = [];
   proximoId = 1;
 }
 
-module.exports = { listar, criar, limpar };
+module.exports = { listar, buscarPorId, criar, atualizar, remover, limpar };
