@@ -1,6 +1,6 @@
 {
   "name": "api-tarefas",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "API REST simples de gerenciamento de tarefas",
   "main": "src/server.js",
   "scripts": {
