@@ -16,4 +16,10 @@ router.get('/:id', (req, res) => {
   res.json(tarefa);
 });
 
+router.put('/:id', validarTarefa, (req, res) => {
+  const tarefa = repositorio.atualizar(Number(req.params.id), req.body);
+  if (!tarefa) return res.status(404).json({ erro: 'Tarefa não encontrada' });
+  res.json(tarefa);
+});
+
 module.exports = router;
