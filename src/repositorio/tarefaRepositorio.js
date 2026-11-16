@@ -1,8 +1,11 @@
 let tarefas = [];
 let proximoId = 1;
 
-function listar() {
-  return tarefas;
+function listar(filtros = {}) {
+  if (filtros.concluida === undefined) {
+    return tarefas;
+  }
+  return tarefas.filter((t) => t.concluida === filtros.concluida);
 }
 
 function buscarPorId(id) {
