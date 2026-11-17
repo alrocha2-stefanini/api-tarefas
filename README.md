@@ -28,7 +28,7 @@ npm test
 | Método | Rota | Descrição |
 |--------|------|-----------|
 | GET | /saude | Verifica se a API está no ar |
-| GET | /tarefas | Lista todas as tarefas |
+| GET | /tarefas | Lista todas as tarefas (em ordem de criação) |
 | GET | /tarefas/:id | Busca uma tarefa pelo id |
 | POST | /tarefas | Cria uma tarefa |
 | PUT | /tarefas/:id | Atualiza uma tarefa |
