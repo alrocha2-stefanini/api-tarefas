@@ -3,7 +3,14 @@ const repositorio = require('../repositorio/tarefaRepositorio');
 const validarTarefa = require('../middlewares/validarTarefa');
 
 router.get('/', (req, res) => {
-  res.json(repositorio.listar());
+  const { concluida } = req.query;
+  if (concluida === undefined) {
+    return res.json(repositorio.listar());
+  }
+  if (concluida !== 'true' && concluida !== 'false') {
+    return res.status(400).json({ erro: "concluida deve ser 'true' ou 'false'" });
+  }
+  res.json(repositorio.listar({ concluida: concluida === 'true' }));
 });
 
 router.post('/', validarTarefa, (req, res) => {
